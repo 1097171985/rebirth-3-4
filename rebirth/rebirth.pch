@@ -1,0 +1,128 @@
+//
+//  rebirth.pch
+//  rebirth
+//
+//  Created by 侯帅 on 16/7/11.
+//  Copyright © 2016年 侯帅. All rights reserved.
+//
+
+#ifndef rebirth_pch
+#define rebirth_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* rebirth_pch */
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#define kUIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+
+#define iPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125, 2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size)) : NO)
+//获取屏幕 宽度、高度
+#define WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+#import"Common.h"
+
+#import "YkxHttptools.h"
+#import"AFNetworking.h"
+#import "UILabel+StringFrame.h"
+#import "UILabel+StringFrame.h"
+#import "MJRefresh.h"
+#import "AppDelegate.h"
+#import "Masonry.h"
+#import "UIImageView+WebCache.h"
+#import "LCProgressHUD.h"
+#import "RDVTabBarController.h"
+#import "RDVTabBarItem.h"
+#import "RDVTabBar.h"
+#import "NSString+JieXi.h"
+#import "SBJson.h"
+#import "MBProgressHUD.h"
+#import "HSNetworkHelper.h"
+#import "UIButton+WebCache.h"
+#import "MacroDefinition.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import <CommonCrypto/CommonDigest.h>
+#import "WJFCollection.h"
+#import "LXSegmentScrollView.h"
+#import "HSVegetableViewController.h"
+#import "HSCacheFile.h"
+#import "LoginState.h"
+#import "HSLoginViewController.h"
+#import "NetworkWrongView.h"
+//常用颜色
+#define Grayline @"#f2f2f2"  
+#define heitizi @"#27292b"
+#define shitudise @"#f2f2f2"
+#define bukedianjibtn @"#848a91"
+//加密工具
+#define vn(arg) (@""#arg)
+
+#define sv(arg) (arg ? arg:@"")
+
+//适配
+#define  WIDTHRATIO  kScreenWidth/375
+
+#define HEIGHTRATIO   kScreenHeight/667
+#define Grayline @"#f2f2f2"
+
+#define heitizi @"#27292b"
+
+#define COLOR_THEME1 ([NSString colorWithHexString:@"#6d7278"])//大红色
+#define COLOR_THEME ([NSString colorWithHexString:@"#6d7278"])//去哪儿绿
+
+
+
+#define ROOTURL  @"http://www.rempeach.com/rebirth"
+
+//接口
+#define loginHttp @"http://www.rempeach.com/rebirth/api/login/login"
+#define regPhoneNum @"http://www.rempeach.com/rebirth/api/login/regist_checkPhone"
+#define checkYanzhengma @"http://www.rempeach.com/rebirth/api/login/checkCode"
+#define regzhanghao @"http://www.rempeach.com/rebirth/api/login/regist"
+#define shouyeTop @"http://www.rempeach.com/rebirth/api/index/getIndex"
+#define shouyexia @"http://www.rempeach.com/rebirth/api/index/getIndexList"
+#define XGphonefirst @"http://www.rempeach.com/rebirth/api/login/forgetPwd"
+#define XGphonesecond @"http://www.rempeach.com/rebirth/api/login/checkYzm"
+#define XGphonethird @"http://www.rempeach.com/rebirth/api/login/reSavePwd"
+#define BDJSZ @"http://www.rempeach.com/rebirth/api/user/saveDriCard"
+#define huoquzhifuxinxi @"http://www.rempeach.com/rebirth/api/order/getDataOfPay"
+#define huoquxinxi @"http://www.rempeach.com/rebirth/api/user/get_userInfo"
+#define xiugaixinxi @"http://www.rempeach.com/rebirth/api/user/edit_userInfo"
+#define postIconIMG @"http://www.rempeach.com/rebirth/api/user/edit_headImg"
+#define huoqulianxiren @"http://www.rempeach.com/rebirth/api/user/getEmergencyContact"
+#define settingPhoneNum @"http://www.rempeach.com/rebirth/api/user/setEmergencyContact"
+#define huoqu @"http://www.rempeach.com/rebirth/api/user/getAuth_info"
+
+#import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
+#define MAS_SHORTHAND
+#define MAS_SHORTHAND_GLOBALS
+
+#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+#define IOS_VERSION_4_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 4.0)? (YES):(NO))
+#define IOS_VERSION_5_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)? (YES):(NO))
+#define IOS_VERSION_6_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)? (YES):(NO))
+#define IOS_VERSION_7_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)? (YES):(NO))
+#define IOS_VERSION_8_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)? (YES):(NO))
+
+#define UIColorFrom0xRGBA(rgbValue,alphaValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:alphaValue]
+#endif
